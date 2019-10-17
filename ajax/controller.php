@@ -12,7 +12,7 @@
    station 获取站点信息数据
    departscreen 获取发车时间数据
 */
-function check($roadline,$function)
+function main($roadline,$function)
 {
     $line_info = get_line_id_v2($roadline);
     $line_id = $line_info['lineCode'];
@@ -736,5 +736,5 @@ $roadline = $rzw -> zw ;
             $roadline = $roadline;
         }
     logResult($ip,$roadline,$function);
-check($roadline,$function);
+main($roadline,$function);
 
