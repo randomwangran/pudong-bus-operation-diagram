@@ -2,13 +2,14 @@
 
 /* The version is made by BobLiu0518 and I 've improved some UI issue for her. */
 
-	session_start();
-	include('function.php');
+	include('function.php'); //export function package
 	$zbh = $_GET['zbh'];
-	if(!empty($zbh)){
+	if(!empty($zbh))
+	{
 		$all = findbus($zbh);
 		$x = 0;
-		foreach ($all as $k1 => $v1){
+		foreach ($all as $k1 => $v1)
+		{
 			$lineId[$x] = findbusline($v1);
 			$res[$x] = main($lineId[$x],$v1);
 			$x++;
@@ -31,23 +32,22 @@
 </head>
 
 <body>
-	<div class="container" style="max-width: 750px;">
-		<div class="container">
-			<br />
-			<h2><b>车辆状态查询</b></h2>
+<div class="container">
+<br />
+	<h2><b>车辆状态查询</b></h2>
             <div class="search" class="row head">
                 <form action="index.php" method="get" class="form-inline">
-                    <div class="col-lg-10">
-                        <div class="input-group">
-                            <input type="text" name="zbh" class="form-control" placeholder="请输入关键字……" value="<?= $zbh ?>" transparent autofocus x-webkit-speech>
-                            <button type="submit" class="btn btn-primary" style="margin:2px;margin-top:0px">查询</button>
-                        </div>
-                    </div>
+                    	<div class="col-lg-10">
+                        	<div class="input-group">
+                            		<input type="text" name="zbh" class="form-control" placeholder="在此自编号" value="<?= $zbh ?>" transparent autofocus x-webkit-speech>
+                            		<button type="submit" class="btn btn-primary" style="margin:2px;margin-top:0px">查询</button>
+                        	</div>
+                    	</div>
                 </form>
-        </div>
-	</div>
+            </div>
+</div>
             
-		<div class="container">
+<div class="container">
 <?php
 	$x = 0;
 	if(count($res) == 10)
