@@ -2,7 +2,7 @@
 
 
 /*
-    2019-08-17 浦交模拟图V2.3
+    2019-11-16 Birthday! 浦交模拟图V2.4
     Made by Leo
 */
 
@@ -98,24 +98,6 @@ function data_get($url,$post_data,$method)
     curl_close($ch);
     
     return $output;
-}
-
-/* 
-   此模块已经弃用
-   模块B：获取上海交通系统中的某一线路的线路ID
-   接口来源：浦东交通云
-   相关参数：
-   1.roadline 线路名称
-   2.line_id  线路ID号
-*/
-
-function get_line_id($roadline)
-{
-    $url = "http://180.168.57.114:8380/bsth_kxbus/GetDateHttpUtils/Getlinename.do";
-    $post_data = array("linename" => $roadline);
-    $result = data_get($url,$post_data,'POST');
-    
-    return json_decode($result,true);
 }
 
 /* 
@@ -311,7 +293,11 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data)
         //该段功能为根据站点ID、名字查找现在车辆行驶在第几站（nextlevel = nowlevel + 1）
         foreach ($station_data['data'] as $xl => $zd)
         {
-            if($zd['Stationid'] == $v_info['stationCode']) $res[$x]['nextlevel'] = $xl+2-$upmax;
+            if($zd['Stationid'] == $v_info['stationCode']) 
+            {
+                $res[$x]['nextlevel'] = $xl+2-$upmax;
+                break;
+            }
         }
         
         //判断是否在最后一站
@@ -321,13 +307,12 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data)
         
         $res[$x]['drivername'] = $res[$x]['lpname'];
         
-        if ($v_info['sch']['bcType'] == 'region') $res[$x]['drivername'] = '区间'.$res[$x]['lpname'].' '.$v_info['sch']['remarks'];
+        if ($v_info['sch']['bcType'] == 'region')
+            $res[$x]['drivername'] = '区间 '.$res[$x]['lpname']." ".$v_info['sch']['qdzName'].'->'.$v_info['sch']['zdzName'];
 
         $res[$x]['state'] = '营运车辆';
         //默认认为所有车都是运营车辆
-        
-               //echo $res[$x]['vnumber'].' '.$res[$x]['nextlevel'].' ';
- 
+         
         if ($res[$x]['nextlevel'] == 2) {
             $res[$x]['state'] = $v_info['stationName'];
             //先把所有有可能在终点站的车，状态全部定义为在终点站
@@ -444,13 +429,18 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data)
         $res[$x]['rate'] = (600-$v_info['distance'])/1200*1.2; 
         //站中进度条
     
-        $res[$x]['drivername'] = $res[$x]['lpname'];//$v_info['sch']['jName'].' '.$res[$x]['lpname'];
-        if ($v_info['sch']['bcType'] == 'region') $res[$x]['drivername'] = '区间'.$res[$x]['lpname'].' '.$v_info['sch']['remarks'];
+        $res[$x]['drivername'] = $res[$x]['lpname'];
+        if ($v_info['sch']['bcType'] == 'region') 
+            $res[$x]['drivername'] = '区间 '.$res[$x]['lpname']." ".$v_info['sch']['qdzName'].'->'.$v_info['sch']['zdzName'];
 
         
         foreach ($station_data['data'] as $xl => $zd)
         {
-            if($zd['Stationid'] == $v_info['stationCode']) {$res[$x]['nextlevel'] = $xl+2;break;}
+            if($zd['Stationid'] == $v_info['stationCode']) 
+            {
+                $res[$x]['nextlevel'] = $xl+2;
+                break;
+            }
         }
         
         //判断是否到达最后一站
@@ -458,7 +448,6 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data)
         
         $res[$x]['state'] = '营运车辆';
         $v_info['seconds2'] = -$v_info['seconds2'];
-        //if ( ($v_info['seconds2']>200 and !empty($v_info['sch']['lpName']) or strpos($v_info['sch']['zdzName'],'停车')!==false)){$res[$x]['state'] = '停车场';$sjyy++;} 
 
         if (!empty($v_info['sch']['lpName']))
         {
