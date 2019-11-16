@@ -1,4 +1,7 @@
 <?php
+
+/* The version is made by BobLiu0518 and I 've improved some UI issue for her. */
+
 	session_start();
 	include('function.php');
 	$zbh = $_GET['zbh'];
