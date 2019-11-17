@@ -14,7 +14,7 @@
    station 获取站点信息
    departscreen 获取发车屏信息
 */
-function check($roadline,$function) {
+function main($roadline,$function) {
     $line_info = get_line_id_v2($roadline);
     $line_id = $line_info['lineCode'];
     //系统中的线路ID [Example:10068]
@@ -598,25 +598,7 @@ function departscreen($line_id,$roadline) {
 
     $data = array('Count' => 2,'jhpc' => $data2['jhpc'],'dqyy' => $data2['dqyy'],'data' => array($data0,$data1));
     return json_encode($data);
-
 }
-
-/*
-    记录访问者的IP以及查询的线路名、访问时间
-*/
-function logResult($word = '',$roadline,$function) {
-    $fp = fopen("log.txt","a");
-    flock($fp, LOCK_EX) ;
-    fwrite($fp,' | '.strftime("%Y-%m-%d %H:%M:%S",time())." | IP:".$word." | $roadline"." | ".$function."\n");
-    flock($fp, LOCK_UN);
-    fclose($fp);
-}
-//获取用户IP地址
-if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-else $ip = ($ip) ? $ip : $_SERVER["REMOTE_ADDR"];
-
-session_start();
-//if(empty($_SESSION['userid'])) header('location:/v2/login.html');
 
 $function = $_GET['Method'];
 
@@ -636,7 +618,5 @@ if ($shuzi) {
 {
     $roadline = $roadline;
 }
-logResult($ip,$roadline,$function);
-//访客日志记录
-check($roadline,$function);
+main($roadline,$function);
 ?>
