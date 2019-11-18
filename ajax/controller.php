@@ -321,10 +321,10 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
             } elseif (!empty($v_info['parkCode']) and $res[$x]['state'] <> $v_info['stationName']) {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
-            } elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName'])) {
+            }/* elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName'])) {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
-            } elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 90) {
+            } */elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 90) {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
             }
@@ -430,10 +430,10 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         } elseif (empty($v_info['stationName'])) {
             $res[$x]['state'] = '停车场';
             $sjyy++;
-        } elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName'])) {
+        } /*elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName'])) {
             $res[$x]['state'] = '停车场';
             $sjyy++;
-        } elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 100) {
+        } */elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 100) {
             $res[$x]['state'] = '停车场';
             $sjyy++;
         }
@@ -588,13 +588,6 @@ function departscreen($line_id,$roadline) {
 
     $data2['jhpc'] = 0;
     $data2['dqyy'] = 0;
-    /*
-        $file = "./pc/$roadline.json";
-        if(file_exists($file)){
-        $data2 = file_get_contents($file); //读取缓存
-        $data2 = json_decode($data2,true);
-        }
-        */
 
     $data = array('Count' => 2,'jhpc' => $data2['jhpc'],'dqyy' => $data2['dqyy'],'data' => array($data0,$data1));
     return json_encode($data);
@@ -611,12 +604,7 @@ $rzw = json_decode($rzw);
 $roadline = $rzw -> zw ;
 
 //正则判断车迷输入的roadline是否为纯数字，如果是则自动在最后加入“路”
-if (preg_match("/^\d*$/",$roadline)) $shuzi = true;
-if ($shuzi) {
-    $roadline = $roadline.'路';
-} else
-{
-    $roadline = $roadline;
-}
+if (preg_match("/^\d*$/",$roadline)) $roadline = $roadline.'路';
+//准备工作就绪，调用主函数
 main($roadline,$function);
 ?>
