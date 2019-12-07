@@ -1,6 +1,6 @@
 # shanghai-bus-operation-diagram
 ### 浦东公交模拟图
-本代码不再更新，新版本将在博客上发布，请关注https://bus-fan.xyz/blog
+本代码不再更新，新版本将在博客上发布，请关注[我の个人小站]https://bus-fan.xyz/document
 ### 食用方法：
 #### 一、环境配置
 本模拟图使用PHP制作，为了让程序正常工作，您需要为您的PHP安装Curl拓展。
