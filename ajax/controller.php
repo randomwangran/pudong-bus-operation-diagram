@@ -2,10 +2,8 @@
 
 
 /*
-    2019-11-17 浦交模拟图V2.5
+    2019-12-08 浦交模拟图V2.95
     Made by Leo
-    W: 在使用本版本前请先清空line文件夹，否则会有意外BUG出现
-    W: 请务必创建一个line文件夹，存放线路缓存
 */
 
 /*
@@ -201,21 +199,32 @@ function station_output_B($roadline,$output,$direction) {
     return $data;
 }
 
-function pd_group_corp($roadline) {
+/*function pd_group_corp($roadline) {
     //Set Url
     $url = "http://103.56.60.48:51481/interface/Handler.ashx?action=getgpsdata&roadline=".urlencode(iconv('utf-8', 'gb2312',$roadline));
     $data = data_get($url,'','GET');
     $data = json_decode($data,true);
     return $data['data'];
 
-}
+}*/
 
+function time_check()
+{
+    $j=date("H:i");//获得当前小时和分钟的时间
+    $h=strtotime($j);//获得当前小时和分钟的时间时间戳
+    $z=strtotime('21:40');//获得指定分钟时间戳，21:40
+    $x=strtotime('23:59');
+    if($h>$z && $z<$x){
+      return 0;
+    }
+    else return 1;
+}
 /*
    模块E：实时公交数据格式化处理
 */
 
 function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
-    $json_string = file_get_contents('./zb_data.json');
+    $json_string = file_get_contents('./zbh_data.json');
     $arr = json_decode($json_string,true);
     //去程
     $url = "http://180.166.5.82:9777/gps/findByLineAndUpDown?lineCode=$line_id&upDown=0&t=".rand();
@@ -257,14 +266,14 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         $mid = round($upmax * 0.65);
 
         if ($v_info['seconds'] < 60) {
-            $res[$x]['dzsj'] = '剩余'.$v_info['seconds'].'秒 '.$v_info['distance'].'米';
+            $res[$x]['dzsj'] = '残り'.$v_info['seconds'].'秒 '.$v_info['distance'].'「m」';
         } else
         {
-            $res[$x]['dzsj'] = '剩余'.round($v_info['seconds']/60) .'分钟 '.$v_info['distance'].'米';
+            $res[$x]['dzsj'] = '残り'.round($v_info['seconds']/60) .'分 '.$v_info['distance'].'「m」';
         }
         //公交车到站预测
 
-        if ($v_info['distance'] <210) $res[$x]['dzsj'] ='即将进站';
+        //if ($v_info['distance'] <210) $res[$x]['dzsj'] ='即将进站';
 
         $res[$x]['lpname'] = $v_info['sch']['lpName'].'路牌 '.$v_info['sch']['fcsj'];
 
@@ -287,7 +296,7 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         //if ($res[$x]['nextlevel']+2 == $upmax) $rate = 0;
 
         if (empty($v_info['sch']['lpName'])) $res[$x]['drivername'] = '未知班次';
-        else $res[$x]['drivername'] = '全程 '.$res[$x]['lpname'];
+        else $res[$x]['drivername'] = '全行程 '.$res[$x]['lpname'];
 
         //判断运营模式是否为区间
         if ($v_info['sch']['bcType'] == 'region') {
@@ -313,7 +322,7 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         $v_info['seconds2'] = -$v_info['seconds2'];
 
         if ($res[$x]['state'] == '营运车辆') {
-            if (!empty($v_info['sch']['lpName'])) {
+            if (!empty($v_info['sch']['lpName']) && (time() - $v_info['serverTimestamp']/1000) < 500) {
                 if ($v_info['sch']['inOut'] == 'true' or (time() - $v_info['serverTimestamp']/1000) > 720) {
                     $res[$x]['state'] = '停车场';
                     $sjyy++;
@@ -321,10 +330,10 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
             } elseif (!empty($v_info['parkCode']) and $res[$x]['state'] <> $v_info['stationName']) {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
-            }/* elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName'])) {
+            } elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName']) and time_check()) {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
-            } */elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 90) {
+            } elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 90) {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
             }
@@ -387,10 +396,10 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         //设备时间戳转化
 
         if ($v_info['seconds'] < 60) {
-            $res[$x]['dzsj'] = '剩余'.$v_info['seconds'].'秒 '.$v_info['distance'].'米';
+            $res[$x]['dzsj'] = '残り'.$v_info['seconds'].'秒 '.$v_info['distance'].'「m」';
         } else
         {
-            $res[$x]['dzsj'] = '剩余'.round($v_info['seconds']/60) .'分钟 '.$v_info['distance'].'米';
+            $res[$x]['dzsj'] = '残り'.round($v_info['seconds']/60) .'分钟 '.$v_info['distance'].'「m」';
         }
         //到站预测 判定如在一分钟以内则改显秒数
 
@@ -401,7 +410,7 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         //路牌信息
 
         if (empty($v_info['sch']['lpName'])) $res[$x]['drivername'] = '未知班次';
-        else $res[$x]['drivername'] = '全程 '.$res[$x]['lpname'];
+        else $res[$x]['drivername'] = '全行程 '.$res[$x]['lpname'];
 
         //判断运营模式是否为区间
         if ($v_info['sch']['bcType'] == 'region') {
@@ -422,7 +431,7 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         $res[$x]['state'] = '营运车辆';
         $v_info['seconds2'] = -$v_info['seconds2'];
 
-        if (!empty($v_info['sch']['lpName'])) {
+        if (!empty($v_info['sch']['lpName']) && (time() - $v_info['serverTimestamp']/1000) < 500) {
             if ($v_info['sch']['inOut'] == 'true') {
                 $res[$x]['state'] = '停车场';
                 $sjyy++;
@@ -430,10 +439,12 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         } elseif (empty($v_info['stationName'])) {
             $res[$x]['state'] = '停车场';
             $sjyy++;
-        } /*elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName'])) {
-            $res[$x]['state'] = '停车场';
-            $sjyy++;
-        } */elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 100) {
+        } 
+        elseif ($res[$x]['nextlevel'] > 2 and $res[$x]['nextlevel'] < $mid and empty($v_info['sch']['lpName']) and time_check()) {
+                $res[$x]['state'] = '停车场';
+                $sjyy++;
+            }
+        elseif (empty($v_info['distance']) or $v_info['seconds2'] > 60 or (time() - $v_info['serverTimestamp']/1000) > 100) {
             $res[$x]['state'] = '停车场';
             $sjyy++;
         }
@@ -454,11 +465,17 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
         $res[$x]['wz'] = $station_data['data'][$res[$x]['nextlevel']+$upmax-1]['LevelName'];
         $x++;
     }
-    if (strpos($roadline,'申崇') !== false) {
+    /*if (strpos($roadline,'申崇') !== false) {
         $group_data = pd_group_corp($roadline);
         $res = array_merge($group_data,$res);
-    }
-
+    }*/
+    /*
+    $base_data['dqyy'] = $base_data['dqyy'] + count($data['list']) - $sjyy;
+    $base_data['jhpc'] = $base_data['jhpc'] + count($data['list']);
+    if ($data2['jhpc'] > $base_data['jhpc']) {$base_data['jhpc'] = $data2['jhpc'];}
+    $base_data = json_encode($base_data);
+    file_put_contents($file,$base_data);
+*/
     //并入数组并返回值
     $res = array('Count' => $x+$x1 , 'data' => $res);
     return $res;
@@ -471,7 +488,7 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
 */
 
 function departscreen($line_id,$roadline) {
-    $json_string = file_get_contents('./zb_data.json');
+    $json_string = file_get_contents('./zbh_data.json');
     //读取车牌与自编号信息文件
 
     $arr = json_decode($json_string,true);
@@ -588,10 +605,35 @@ function departscreen($line_id,$roadline) {
 
     $data2['jhpc'] = 0;
     $data2['dqyy'] = 0;
+    /*
+        $file = "./pc/$roadline.json";
+        if(file_exists($file)){
+        $data2 = file_get_contents($file); //读取缓存
+        $data2 = json_decode($data2,true);
+        }
+        */
 
     $data = array('Count' => 2,'jhpc' => $data2['jhpc'],'dqyy' => $data2['dqyy'],'data' => array($data0,$data1));
     return json_encode($data);
+
 }
+
+/*
+    记录访问者的IP以及查询的线路名、访问时间
+*/
+function logResult($word = '',$roadline,$function) {
+    $fp = fopen("log.txt","a");
+    flock($fp, LOCK_EX) ;
+    fwrite($fp,' | '.strftime("%Y-%m-%d %H:%M:%S",time())." | IP:".$word." | $roadline"." | ".$function."\n");
+    flock($fp, LOCK_UN);
+    fclose($fp);
+}
+//获取用户IP地址
+if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+else $ip = ($ip) ? $ip : $_SERVER["REMOTE_ADDR"];
+
+session_start();
+//if(empty($_SESSION['userid'])) header('location:/v2/login.html');
 
 $function = $_GET['Method'];
 
@@ -604,7 +646,15 @@ $rzw = json_decode($rzw);
 $roadline = $rzw -> zw ;
 
 //正则判断车迷输入的roadline是否为纯数字，如果是则自动在最后加入“路”
-if (preg_match("/^\d*$/",$roadline)) $roadline = $roadline.'路';
-//准备工作就绪，调用主函数
-main($roadline,$function);
+if (preg_match("/^\d*$/",$roadline)) $shuzi = true;
+if ($shuzi) {
+    $roadline = $roadline.'路';
+} else
+{
+    $roadline = $roadline;
+}
+    logResult($ip,$roadline,$function);
+    //访客日志记录
+    main($roadline,$function);
+    //主函数调用
 ?>
