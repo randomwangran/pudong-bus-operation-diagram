@@ -224,7 +224,7 @@ function time_check()
 */
 
 function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
-    $json_string = file_get_contents('./zbh_data.json');
+    $json_string = file_get_contents('./zb_data.json');
     $arr = json_decode($json_string,true);
     //去程
     $url = "http://180.166.5.82:9777/gps/findByLineAndUpDown?lineCode=$line_id&upDown=0&t=".rand();
@@ -488,7 +488,7 @@ function gps_data_get($roadline,$line_start,$line_end,$line_id,$station_data) {
 */
 
 function departscreen($line_id,$roadline) {
-    $json_string = file_get_contents('./zbh_data.json');
+    $json_string = file_get_contents('./zb_data.json');
     //读取车牌与自编号信息文件
 
     $arr = json_decode($json_string,true);
