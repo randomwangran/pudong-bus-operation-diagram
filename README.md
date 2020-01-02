@@ -1,6 +1,6 @@
 # shanghai-bus-operation-diagram
 ### 浦东公交模拟图
-<span style="color:red;">额外许可：本软件仅供个人使用，不得商用</span><br>
+<font color="#660000">额外许可：本软件仅供个人使用，不得商用</font><br>
 **v2.95正式版** 2019-12-07 Update
 1. 完善车辆逻辑，优化用户体验，json请使用专业的编辑器修改（推荐Notepad++），需要掌握必要的Json语法
 2. 新增用户日志查询功能，方便站长分析车迷的模拟图使用偏好，同时可以防止滥用
