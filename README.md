@@ -47,9 +47,11 @@ Type in your domain and click "submit" buttom directly.
 
 ![pic07.png](https://i.loli.net/2020/02/11/nl1ZzqboORpPJfN.png)
 
+Now, we download the code. Please click the "file" Tools -> "Remote Download".
+
 ![pic08.png](https://i.loli.net/2020/02/11/1wb2WG6HP8AYOru.png)
 
-**The Download URL is ```https://github.com/sjlleo/pudong-bus-operation-diagram/archive/master.zip```**
+The Download URL is ```https://github.com/sjlleo/pudong-bus-operation-diagram/archive/master.zip```
 
 ![pic09.png](https://i.loli.net/2020/02/11/bZsYCST9NuBeoOF.png)
 
