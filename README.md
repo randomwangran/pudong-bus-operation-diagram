@@ -56,7 +56,8 @@ The Download URL is ```https://github.com/sjlleo/pudong-bus-operation-diagram/ar
 ![pic09.png](https://i.loli.net/2020/02/11/bZsYCST9NuBeoOF.png)
 
 After downloading, Now We try to uncompress the file.
-if all goes well, you will see a folder named ```pudong-bus-operation-diagram```
+
+If all goes well, you will see a folder named ```pudong-bus-operation-diagram```
 
 ![pic10.png](https://i.loli.net/2020/02/11/px9f2WZ7ah6dQgo.png)
 
