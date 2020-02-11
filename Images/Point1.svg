@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 绘图1.svg 页-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="0.141842in" height="0.141842in" viewBox="0 0 10.2126 10.2126" xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#424242;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st2 {fill:#2196f3;stroke:#2196f3;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g>
+		<title>页-1</title>
+		<g id="group7-1" transform="translate(9.7126,10.7126) rotate(180)">
+			<title>工作表.7</title>
+			<g id="shape8-2">
+				<title>剪去同侧角的矩形</title>
+				<path d="M0 10.21 L9.21 10.21 L9.21 2.53 L7.68 1 L1.53 1 L0 2.53 L0 10.21 Z" class="st1"/>
+			</g>
+			<g id="shape9-4" transform="translate(-3.6455,7.5671) rotate(-90)">
+				<title>V 形</title>
+				<path d="M0 10.21 L1.96 10.21 L3.92 8.25 L1.96 6.29 L0 6.29 L1.96 8.25 L0 10.21 Z" class="st2"/>
+			</g>
+		</g>
+	</g>
+</svg>
