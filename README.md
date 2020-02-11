@@ -4,11 +4,11 @@
 
 ![example.png](https://i.loli.net/2020/02/11/Fcj8yvETWpd72hR.png)
 
-**v2.95正式版** 2019-12-07 Update
-1. 完善车辆逻辑，优化用户体验，json请使用专业的编辑器修改（推荐Notepad++），需要掌握必要的Json语法
-2. 新增用户日志查询功能，方便站长分析车迷的模拟图使用偏好，同时可以防止滥用
-3. 修复少数车辆报废车、过期 GPS 依旧显示在模拟图上的问题，增加车辆时效性判断
-4. 修复浦交更新导致的幽灵车、车辆在模拟图外（出界问题）、特定情况下导致的 JS 内存泄漏问题
+**v2.95 Stable Version** 2019-12-07 Update
+1. Improve vehicle logic and optimize user experience. Please modify the json with a professional editor (Notepad ++ is recommended). You need to have the necessary Json syntax.
+2. Added user log query function, which is convenient for webmasters to analyze the preferences of simulation map fans and prevent abuse
+3. Fixed the problem that a few vehicles were scrapped and expired GPS still displayed on the simulation map, increasing the timeliness of the vehicle
+4. Fix the ghost car caused by the Pujiao update, the vehicle outside the simulation map (out of bounds issue), and the JS memory leak caused by the specific situation
 ### User Manual：
 #### DEPLOY ON YOUR VPS
 It is worth noting that this is done on the premise that you have a VPS, and you can search on Google to find the right VPS service provider for yourself.
