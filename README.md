@@ -31,11 +31,15 @@ Based on the aapanel URL,username and password showed, visit the URL and login t
 
 ![pic03.png](https://i.loli.net/2020/02/11/Kv5LzAdV34X8s9i.png)
 
-Right-click the number in the upper left corner to view the current installation progress of the basic program
+Right-click the number in the upper left corner to view the current installation progress of the basic environment
 
 ![pic04.png](https://i.loli.net/2020/02/11/TIhaFlj2oRbcWBM.png)
 
+A message Box will tell you the progress of the basic environment.
+
 ![pic05.png](https://i.loli.net/2020/02/11/zqKT6gEP8XoJUjn.png)
+
+After all done, please check whether it works.
 
 ![pic06.png](https://i.loli.net/2020/02/11/4LFXgK58woGRrxZ.png)
 
@@ -47,7 +51,7 @@ Type in your domain and click "submit" buttom directly.
 
 ![pic07.png](https://i.loli.net/2020/02/11/nl1ZzqboORpPJfN.png)
 
-Now, we download the code. Please click the File Tools -> "yourdomain.com" folder path -> Remote Download.
+Now, we download the code. Please click the ```File Tools -> "yourdomain.com" folder path -> Remote Download```
 
 ![pic08.png](https://i.loli.net/2020/02/11/1wb2WG6HP8AYOru.png)
 
@@ -61,7 +65,7 @@ If all goes well, you will see a folder named ```pudong-bus-operation-diagram```
 
 ![pic10.png](https://i.loli.net/2020/02/11/px9f2WZ7ah6dQgo.png)
 
-Rename the folder as you favor.
+Rename the folder as you favour, here we rename it as "yourpathname"
 
 ![pic11.png](https://i.loli.net/2020/02/11/j3xXMbWUsdO1S4k.png)
 
