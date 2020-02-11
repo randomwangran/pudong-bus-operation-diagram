@@ -79,4 +79,18 @@ Rename the folder as you favour, here we rename it as "yourpathname"
 
 **Now try to access http://yourdomain.com/yourpathname/guide.php**
 
+#### Or Deploy with Docker
+
+```bash
+git clone https://github.com/sjlleo/pudong-bus-operation-diagram
+cd pudong-bus-operation-diagram
+cp .env.example .env
+```
+
+Configure your web port in `.env` file, then
+
+```bash
+docker-compose up -d
+```
+
 #### Enjoy :)

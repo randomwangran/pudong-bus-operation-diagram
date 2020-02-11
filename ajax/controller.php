@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ERROR | E_PARSE);
 
 /*
     2019-12-08 浦交模拟图V2.95
