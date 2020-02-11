@@ -23,7 +23,7 @@ It is worth noting that this is done on the premise that you have a VPS, and you
 
 #### We Provide 2 Methods to deploy this project, docker is the best choice.
 
-#### First Way: Normal Deploy (Easy install in Cpanel & Other PHP Panel -- Best Deploy in Hosting)
+#### First Way: Normal Deploy
 
 1. Log in to your VPS, using SSH and enter the following command to install aapanel.
 
@@ -89,10 +89,11 @@ Rename the folder as you favour, here we rename it as "yourpathname"
 
 **Now try to access http://yourdomain.com/yourpathname/guide.php**
 
-#### Or Deploy with Docker (Easy install in Any Linux VPS -- The environment is unified and is not easy to make mistakes.))
+#### Or Deploy with Docker
 
-If you are new, please read this page:
+> If you are new, please read this page:
 https://github.com/sjlleo/pudong-bus-operation-diagram/wiki/How-to-install-the-program%3F
+
 ```bash
 git clone https://github.com/sjlleo/pudong-bus-operation-diagram
 cd pudong-bus-operation-diagram
