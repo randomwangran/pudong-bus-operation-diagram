@@ -3,6 +3,9 @@
 #### **额外许可：本软件不得用于商业用途**
 #### **Additional license: this software may not be used for commercial purposes**
 
+本代码的完善离不开很多热心的contributors的帮助和指点，特别感谢hebingchang、BobLiu0518二位开发者
+The improvement of this code is inseparable from a lot of enthusiastic contributors's help and guidance, especially thanks to the two developers of hebingchang and BobLiu0518.
+
 ![example.png](https://i.loli.net/2020/02/11/Fcj8yvETWpd72hR.png)
 
 Example Web: https://example.obus.me/Index/
