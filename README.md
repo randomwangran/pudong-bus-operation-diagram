@@ -53,7 +53,12 @@ Type in your domain and click "submit" buttom directly.
 
 ![pic09.png](https://i.loli.net/2020/02/11/bZsYCST9NuBeoOF.png)
 
+After downloading, Now We try to uncompress the file.
+if all goes well, you will see a folder named ```pudong-bus-operation-diagram```
+
 ![pic10.png](https://i.loli.net/2020/02/11/px9f2WZ7ah6dQgo.png)
+
+Rename the folder as you favor.
 
 ![pic11.png](https://i.loli.net/2020/02/11/j3xXMbWUsdO1S4k.png)
 
