@@ -91,6 +91,8 @@ Rename the folder as you favour, here we rename it as "yourpathname"
 
 #### Or Deploy with Docker (Easy install in Any Linux VPS -- The environment is unified and is not easy to make mistakes.))
 
+If you are new, please read this page:
+https://github.com/sjlleo/pudong-bus-operation-diagram/wiki/How-to-install-the-program%3F
 ```bash
 git clone https://github.com/sjlleo/pudong-bus-operation-diagram
 cd pudong-bus-operation-diagram
