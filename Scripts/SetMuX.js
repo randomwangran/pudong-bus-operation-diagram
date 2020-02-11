@@ -197,7 +197,11 @@ function TogetAll() {
             for (var i = 0; i < jdata.length; i++) {
                 var adurl = "http://116.236.170.106:9001/MobileWeb/ShowData.aspx?which=ad&roadline=&registrationmark=&VehicleNumbering=&AdContent=" + jdata[i].Adcode;
                 //  html1 += '<div style="width:200px">';
-                html1 += '<div  id="' + jdata[i].vnumber + '"  class="dnone" > <div class="tit" onclick="showContent(\'' + jdata[i].vnumber + '\')" >' + jdata[i].vnumber + '</div>  <div class="stit" onclick="showContent(\'' + jdata[i].vnumber + '\')" ></div></div>';
+                if (jdata[i].busrun == 'interval')
+                        html1 += '<div  id="' + jdata[i].vnumber + '"  class="dnone" > <div class="tit" style="color:blue" onclick="showContent(\'' + jdata[i].vnumber + '\')" >' + jdata[i].vnumber + '</div>  <div class="stit" onclick="showContent(\'' + jdata[i].vnumber + '\')" ></div></div>';
+                else
+                    html1 += '<div  id="' + jdata[i].vnumber + '"  class="dnone" > <div class="tit" onclick="showContent(\'' + jdata[i].vnumber + '\')" >' + jdata[i].vnumber + '</div>  <div class="stit" onclick="showContent(\'' + jdata[i].vnumber + '\')" ></div></div>';
+                
                 html1 += ' <div  id="d' + jdata[i].vnumber + '" class="dnone" style=" width:225px; border:1px solid black;  background-color:white;  z-index:10000; height:133px;  ">';
                 html1 += '<table border="0" style=" width:100%;text-align: left;"  >';
                 html1 += '                 <tr><td></td><td></td></tr>';
@@ -486,7 +490,7 @@ function Move() {
                         $("#" + jdata[i].vnumber).removeClass("point2");
                         $("#" + jdata[i].vnumber).find(".tit").removeClass("rightst");
                         if (lastup == "") {
-                            lastup += (jdata[i].vnumber == vn0 ? "<span class='redcolor' onclick='showContent1(\"" + jdata[i].vnumber + "\")'  >" + jdata[i].vnumber + "</span>" : "<span   onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>");
+                            lastup += (jdata[i].vnumber == vn0 ? "<span class='redcolor' onclick='showContent1(\"" + jdata[i].vnumber + "\")'  >&ensp;" + jdata[i].vnumber + "&ensp;</span>" : "<span class='waitveh' onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>");
                             lastup += ' <div  id="dd' + jdata[i].vnumber + '"  class="dnone" style=" width:220px; border:1px solid black;  background-color:white;  z-index:1000; height:110px; position: absolute;   ">';
                             lastup += '<table border="0" style=" width:100%;text-align: left;">';
                             lastup += '                 <tr><td></td><td></td></tr>';
@@ -496,14 +500,14 @@ function Move() {
 //                            lastup += '                 <tr><td>营运状态</td><td>' + jdata[i].RunStatus + '</td></tr>';
                             lastup += '                 <tr><td>定位时间</td><td>' + jdata[i].DWTime + '</td></tr>';
 //                            lastup += '                 <tr><td>广告品牌</td><td><a href="' + adurl + '">' + jdata[i].AdContent + '</a></td></tr>';
-                lastup += '                 <tr><td>司机信息</td><td>' + jdata[i].drivername + '</td></tr>';
+//                lastup += '                 <tr><td>司机信息</td><td>' + jdata[i].drivername + '</td></tr>';
 //                            lastup += '                 <tr><td>预计到达</td><td>' + jdata[i].dzsj + '</td></tr>';
 
 //                            lastup += '                 <tr><td>下刊时间</td><td>' + jdata[i].InsureEndDate + '</td></tr>';
                             lastup += '           </table>';
                             lastup += '       </div>';
                         } else {
-                            lastup += "," + (jdata[i].vnumber == vn0 ? "<span class='redcolor'   onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>" : "<span   onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>");
+                            lastup +=  (jdata[i].vnumber == vn0 ? "<span class='redcolor'   onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>" : "<span class='waitveh' onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>");
                             lastup += ' <div  id="dd' + jdata[i].vnumber + '"  class="dnone" style=" width:220px; border:1px solid black;  background-color:white;  z-index:1000; height:110px; position: absolute; ">';
                             lastup += '<table border="0" style=" width:100%;text-align: left;">';
                             lastup += '                 <tr><td></td><td></td></tr>';
@@ -513,7 +517,7 @@ function Move() {
 //                            lastup += '                 <tr><td>营运状态</td><td>' + jdata[i].RunStatus + '</td></tr>';
                             lastup += '                 <tr><td>定位时间</td><td>' + jdata[i].DWTime + '</td></tr>';
 //                            lastup += '                 <tr><td>广告品牌</td><td><a href="' + adurl + '">' + jdata[i].AdContent + '</a></td></tr>';
-                lastup += '                 <tr><td>司机信息</td><td>' + jdata[i].drivername + '</td></tr>';
+//                lastup += '                 <tr><td>司机信息</td><td>' + jdata[i].drivername + '</td></tr>';
 //                            lastup += '                 <tr><td>预计到达</td><td>' + jdata[i].dzsj + '</td></tr>';
 
 //                            lastup += '                 <tr><td>下刊时间</td><td>' + jdata[i].InsureEndDate + '</td></tr>';
@@ -527,7 +531,7 @@ function Move() {
                         $("#" + jdata[i].vnumber).removeClass("point1");
                         $("#" + jdata[i].vnumber).find(".tit").removeClass("leftst");
                         if (lastdown == "") {
-                            lastdown += (jdata[i].vnumber == vn1 ? "<span class='redcolor'  onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>" : "<span  onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>");
+                            lastdown +=  (jdata[i].vnumber == vn1 ? "<span class='redcolor'  onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>" : "<span class='waitveh' onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>");
                             lastdown += ' <div  id="dd' + jdata[i].vnumber + '"  class="dnone"   style=" width:220px; border:1px solid black;  background-color:white;  z-index:1000; height:110px;position: absolute;  top:-150px  ">';
                             lastdown += '<table border="0" style=" width:100%;text-align: left;">';
                             lastdown += '                  <tr><td></td><td></td></tr>';
@@ -544,7 +548,7 @@ function Move() {
                             lastdown += '           </table>';
                             lastdown += '       </div>';
                         } else {
-                            lastdown += "," + (jdata[i].vnumber == vn1 ? "<span class='redcolor'  onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>" : "<span  onclick='showContent1(\"" + jdata[i].vnumber + "\")'>" + jdata[i].vnumber + "</span>");
+                            lastdown += (jdata[i].vnumber == vn1 ? "<span class='redcolor'  onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>" : "<span class='waitveh' onclick='showContent1(\"" + jdata[i].vnumber + "\")'>&ensp;" + jdata[i].vnumber + "&ensp;</span>");
                             lastdown += ' <div  id="dd' + jdata[i].vnumber + '" class="dnone"   style=" width:220px; border:1px solid black;  background-color:white;  z-index:1000; height:110px;  position: absolute; top:-150px " >';
                             lastdown += '<table border="0" style=" width:100%;text-align: left;">';
                             lastdown += '                  <tr><td></td><td></td></tr>';
@@ -579,7 +583,9 @@ function Move() {
                         $("#" + jdata[i].vnumber).css("color", "aqua");
                     }
                 }
-                //  $("#lineCount").text(LineCount);
+                //alert(jdata.length);
+                $("#busCount").text(jdata.length);
+                $("#lineCount").text(LineCount);
                 // getWorkBus();//当前营运车辆
                 $("#lastup").html(lastup);
                 $("#lastdown").html(lastdown);
@@ -622,7 +628,7 @@ function getMinVa(f) {
     return f;
 }
 
-//得到发车屏信息 by sjlleo -2019-03-26
+//得到发车屏信息
 function getScreen() {
     var url = "ajax/controller.php?roadline=" + RoadLine + "&Method=departscreen&startstation=all";
     $.ajax({
@@ -638,10 +644,10 @@ function getScreen() {
         success: function (data) {
             var data = $.parseJSON(data);
             if (data.jhpc != undefined) {
-                $('#busCount').text(data.jhpc);
+                //$('#busCount').text(data.jhpc);
             }
             if (data.dqyy != undefined) {
-                $('#lineCount').text(data.dqyy);
+                //$('#lineCount').text(data.dqyy);
             }
             var jdata = data.data;
             if (jdata.length > 0) {
