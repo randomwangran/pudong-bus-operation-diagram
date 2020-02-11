@@ -1,6 +1,7 @@
 # shanghai-bus-operation-diagram
 ### 浦东公交模拟图
 #### **额外许可：本软件不得用于商业用途**
+#### **Additional license: this software may not be used for commercial purposes**
 
 ![example.png](https://i.loli.net/2020/02/11/Fcj8yvETWpd72hR.png)
 
