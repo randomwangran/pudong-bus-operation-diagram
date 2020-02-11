@@ -18,7 +18,11 @@ Example Web: https://example.obus.me/Index/
 4. Fix the ghost car caused by the Pujiao update, the vehicle outside the simulation map (out of bounds issue), and the JS memory leak caused by the specific situation
 ### User Manual：
 #### DEPLOY ON YOUR VPS
+
 It is worth noting that this is done on the premise that you have a VPS, and you can search on Google to find the right VPS service provider for yourself.
+
+#### We Provide 2 Methods to deploy this project, docker is the best choice.
+
 1. Log in to your VPS, using SSH and enter the following command to install aapanel.
 
 > curl -sSO http://www.aapanel.com/script/new_install_en.sh && bash new_install_en.sh
@@ -83,7 +87,7 @@ Rename the folder as you favour, here we rename it as "yourpathname"
 
 **Now try to access http://yourdomain.com/yourpathname/guide.php**
 
-#### Or Deploy with Docker
+#### Or Deploy with Docker (Recommend)
 
 ```bash
 git clone https://github.com/sjlleo/pudong-bus-operation-diagram
