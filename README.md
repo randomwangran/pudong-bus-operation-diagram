@@ -92,7 +92,8 @@ Rename the folder as you favour, here we rename it as "yourpathname"
 #### Or Deploy with Docker
 
 > If you are new, please read this page:
-https://github.com/sjlleo/pudong-bus-operation-diagram/wiki/How-to-install-the-program%3F
+
+> https://github.com/sjlleo/pudong-bus-operation-diagram/wiki/How-to-install-the-program%3F
 
 ```bash
 git clone https://github.com/sjlleo/pudong-bus-operation-diagram
