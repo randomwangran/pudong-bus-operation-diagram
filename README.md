@@ -17,7 +17,7 @@ It is worth noting that this is done on the premise that you have a VPS, and you
 
 > curl -sSO http://www.aapanel.com/script/new_install_en.sh && bash new_install_en.sh
 
-**This panel has been greatly optimized in the CentOS system. I strongly recommend install it in CentOS.**
+**This panel has been greatly optimized in the Linux CentOS system. I strongly recommend install it in CentOS.**
 
 While you see ```Do you want to install aaPanel to the /www directory now?(y/n):``` choose ```y``` & Enter
 
@@ -29,7 +29,7 @@ After a period of installation, if the installation is successful, it should loo
 
 **2. Configure the panel**
 
-Based on the aapanel URL,username and password showed, visit the URL and login the panel.
+Based on the aapanel URL, username and password showed, visit the URL and login the panel.
 
 ![pic02.png](https://i.loli.net/2020/02/11/dTqZvNf7P5cb2Aj.png)
 
