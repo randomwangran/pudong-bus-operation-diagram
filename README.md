@@ -23,7 +23,7 @@ After a period of installation, if the installation is successful, it should loo
 ![pic01.png](https://i.loli.net/2020/02/11/Ywa7SdMQUJsTfpK.png)
 
 
-2. Configure the panel
+**2. Configure the panel**
 
 Based on the aapanel URL,username and password showed, visit the URL and login the panel.
 
@@ -31,19 +31,25 @@ Based on the aapanel URL,username and password showed, visit the URL and login t
 
 ![pic03.png](https://i.loli.net/2020/02/11/Kv5LzAdV34X8s9i.png)
 
+Right-click the number in the upper left corner to view the current installation progress of the basic program
+
 ![pic04.png](https://i.loli.net/2020/02/11/TIhaFlj2oRbcWBM.png)
 
 ![pic05.png](https://i.loli.net/2020/02/11/zqKT6gEP8XoJUjn.png)
 
 ![pic06.png](https://i.loli.net/2020/02/11/4LFXgK58woGRrxZ.png)
 
-3. Clone the code to it
+**3. Build your website and Clone the code to it**
+
+Type in your domain and click "submit" buttom directly.
+
+> If you don't have a domain, you can also use your vps's ip instead.
 
 ![pic07.png](https://i.loli.net/2020/02/11/nl1ZzqboORpPJfN.png)
 
 ![pic08.png](https://i.loli.net/2020/02/11/1wb2WG6HP8AYOru.png)
 
-```https://github.com/sjlleo/pudong-bus-operation-diagram/archive/master.zip```
+**The Download URL is ```https://github.com/sjlleo/pudong-bus-operation-diagram/archive/master.zip```**
 
 ![pic09.png](https://i.loli.net/2020/02/11/bZsYCST9NuBeoOF.png)
 
@@ -52,3 +58,5 @@ Based on the aapanel URL,username and password showed, visit the URL and login t
 ![pic11.png](https://i.loli.net/2020/02/11/j3xXMbWUsdO1S4k.png)
 
 ![pic12.png](https://i.loli.net/2020/02/11/W1i9VnOuLImkvhF.png)
+
+**Now try to access http://yourdomain.com/yourpathname/guide.php**
