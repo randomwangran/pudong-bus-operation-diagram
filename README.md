@@ -6,9 +6,10 @@
 ### 免责声明
 **如果您是由其他使用本站模拟图项目而跳转过来的，请您注意——所有第三方搭建的网站仅仅引用了本项目的代码，并按照开源协议注明了作者的Github原项目地址，但是第三方网站的所有行为都不在本项目的控制之下，故对由于第三方引起的各类纠纷和损失，我们不会承担任何责任。**
 
-> 本代码的完善离不开很多热心的contributors的帮助和指点，特别感谢[hebingchang](https://github.com/hebingchang/pudong-bus-operation-diagram)、[BobLiu0518](https://github.com/BobLiu0518/Pudong-Bus-Operation-Diagram)二位开发者，以及画出新版模拟图样式的手绘大佬Zhao。
+### 对本项目的有贡献的开发者/Contributors
+本代码的完善离不开很多热心的contributors的帮助和指点，特别感谢[hebingchang](https://github.com/hebingchang/pudong-bus-operation-diagram)、[BobLiu0518](https://github.com/BobLiu0518/Pudong-Bus-Operation-Diagram)二位开发者，以及画出新版模拟图样式的手绘大佬Zhao。
 
-> The improvement of this code is inseparable from a lot of enthusiastic contributors's help and guidance, especially thanks to the two developers of [hebingchang](https://github.com/hebingchang/pudong-bus-operation-diagram), [BobLiu0518](https://github.com/BobLiu0518/Pudong-Bus-Operation-Diagram) and draw a new version of the simulation style of the hand-painted master Zhao.
+The improvement of this code is inseparable from a lot of enthusiastic contributors's help and guidance, especially thanks to the two developers of [hebingchang](https://github.com/hebingchang/pudong-bus-operation-diagram), [BobLiu0518](https://github.com/BobLiu0518/Pudong-Bus-Operation-Diagram) and draw a new version of the simulation style of the hand-painted master Zhao.
 
 ![example.png](https://i.loli.net/2020/02/11/Fcj8yvETWpd72hR.png)
 
