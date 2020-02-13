@@ -14,6 +14,7 @@ The improvement of this code is inseparable from a lot of enthusiastic contribut
 ![example.png](https://i.loli.net/2020/02/11/Fcj8yvETWpd72hR.png)
 
 Example Web: https://example.obus.me/Index/
+`Please do notice that the example site don't have any SLA promise. If it's offline, please don't contact us.`
 
 **v2.95 Stable Version** 2019-12-07 Update
 1. Improve vehicle logic and optimize user experience. Please modify the json with a professional editor (Notepad ++ is recommended). You need to have the necessary Json syntax.
