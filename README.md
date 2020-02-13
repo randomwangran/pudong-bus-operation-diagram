@@ -15,9 +15,9 @@ The improvement of this code is inseparable from a lot of enthusiastic contribut
 
 Example Web: https://example.obus.me/Index/
 
-**`请注意，我们的演示网站没有任何SLA在线率保证，这意味着如果它下线了，请不要联系我们，等待它自行恢复是一个好办法。`**
+**`请注意，我们的演示网站没有任何SLA在线率保证，这意味着如果它下线了，请不要联系我们，等待我们每小时检测的自动脚本使他在线。`**
 
-**`Please do notice that the example site don't have any SLA promise. If it's offline, please don't contact us. The auto script will arouse it online every hour.`**
+**`Please do notice that the example site don't have any SLA promise. If it's offline, please DO NOT contact us. The auto script will arouse it online every hour.`**
 
 **v2.95 Stable Version** 2019-12-07 Update
 1. Improve vehicle logic and optimize user experience. Please modify the json with a professional editor (Notepad ++ is recommended). You need to have the necessary Json syntax.
